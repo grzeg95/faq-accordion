@@ -1,0 +1,44 @@
+.accordion {
+
+  &__item {
+
+    display: block;
+    border-bottom: solid 1px;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &__header {
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: bold;
+      min-height: 62px;
+      padding: 16px 0;
+
+      &__toggle-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover {
+        color: dimgray;
+      }
+    }
+
+    &__body {
+      margin-top: 6px;
+      margin-bottom: 22px;
+
+      &--hidden {
+        height: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

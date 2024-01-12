@@ -1,0 +1,23 @@
+@mixin accordion($theme) {
+
+  .accordion {
+
+    &__item {
+
+      border-bottom: solid 1px lighten(map-get($theme, 'color-secondary'), 45%);
+
+      &__header {
+
+        color: map-get($theme, 'color');
+
+        &:hover {
+          color: map-get($theme, 'color-active');
+        }
+      }
+
+      &__body {
+        color: map-get($theme, 'color');
+      }
+    }
+  }
+}

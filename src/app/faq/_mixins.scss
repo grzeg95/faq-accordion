@@ -1,0 +1,10 @@
+@mixin faq($theme) {
+
+  .app-faq {
+    .app-faq__title {
+      h1 {
+        color: map-get($theme, 'color');
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<cdk-accordion
+  class="accordion"
+  [multi]="multi"
+>
+  @for (item of items; track item; let index = $index) {
+    <cdk-accordion-item
+      #accordionItem="cdkAccordionItem"
+      role="button"
+      tabindex="0"
+      class="accordion__item"
+      (click)="onClick(accordionItem, index)"
+      (focus)="focused = index"
+      (focusout)="focused = -1"
+    >
+      <div
+        class="accordion__item__header"
+        [attr.id]="id + '-' + 'accordion__item__header' + '-' + index"
+      >
+
+        {{ item.title }}
+
+        @if (headerIconNarrowed && accordionItem.expanded || headerIconExpended && !accordionItem.expanded) {
+          <img [src]="accordionItem.expanded ? headerIconNarrowed : headerIconExpended" [alt]="accordionItem.expanded ? 'Close ' : 'Open ' + 'icon'" class="accordion__item__header__toggle-icon"/>
+        }
+
+        @if (!headerIconNarrowed && accordionItem.expanded) {
+          <span class="accordion__item__header__toggle">Close</span>
+        }
+
+        @if (!headerIconExpended && !accordionItem.expanded) {
+          <span class="accordion__item__header__toggle">Open</span>
+        }
+
+      </div>
+
+      <div
+        [@accordionItemOpened]="accordionItem.expanded"
+        [class.accordion__item__body--hidden]="beforeAfterViewInit"
+        class="accordion__item__body"
+        role="region"
+        [attr.id]="id + '-' + 'accordion__item__body' + '-' + index"
+        [attr.aria-labelledby]="id + '-' + 'accordion__item__header' + '-' + index"
+      >
+        {{ item.body }}
+      </div>
+    </cdk-accordion-item>
+  }
+</cdk-accordion>

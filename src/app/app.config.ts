@@ -1,8 +1,15 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
+import {ApplicationConfig} from '@angular/core';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {provideThemeSelector} from '@grzeg95/angular-lib-theme-selector';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideAnimations(),
+    provideThemeSelector({
+      themes: {
+        names: ['pink'],
+        default: 'pink'
+      }
+    })
+  ]
 };
