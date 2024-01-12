@@ -47,7 +47,8 @@ Users should be able to:
 
 ### What I learned
 
-- Angular CDK Dialogs
+- Angular Animations
+- Angular CDK Dialog
 - Angular CDK Accordion
 - Angular CDK Portal
 
